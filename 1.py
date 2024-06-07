@@ -1,5 +1,6 @@
-def list():
 
+
+def list():
     input_str = input("Enter integer values separated by spaces: ")
     values = input_str.split()
 
@@ -12,16 +13,24 @@ def list():
     print(a)
     n=len(a)
 
-    t=int(input('Enter target number: '))
+    def target():
+        t=int(input('Enter target number: '))
 
-    result="pair ({},{}) found"
-    count=0
-    for i in range(n):
-        for j in range(i+1,n):
-            if a[i] + a[j] == t:
-                count=count+1
-                print(result.format(a[i],a[j]))
-    if count==0:
-        print('pair not found')
+        result="pair ({},{}) found"
+        count=0
+        for i in range(n):
+            for j in range(i+1,n):
+                if a[i] + a[j] == t:
+                    count=count+1
+                    print(result.format(a[i],a[j]))
+        if count==0:
+            print('pair not found')
+
+        i=input('Do you want to continue?[y/n]: ')
+        if i=='y':
+            target()
+        else:
+            exit
+    target()
 
 list()
